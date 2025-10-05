@@ -4,7 +4,7 @@ function Homepage(){
     return(
         <>
          <NavBar/>
-         <div className="bg-[url('/src/assets/bg.jpg')] bg-cover bg-center p-44 rounded-lg md-screen" >
+         <div className="bg-[url('/src/assets/bg.jpg')] bg-cover bg-center p-46 rounded-lg md-screen" >
          
         <h1 className="text-3xl sm:text-xl md:text-2xl font-bold">Plan Your Next Adventure Today</h1>
         <p className="text-3xl sm:text-xl md:text-lg mt-4">Your Smart Companion  for planning unforgettable journeys</p>
