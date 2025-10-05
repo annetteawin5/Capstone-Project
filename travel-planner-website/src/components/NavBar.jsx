@@ -11,7 +11,7 @@ function NavBar() {
         <nav className="bg-white shadow-md  top-0 left-0 right-0 z-50 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center ">
             <div className="flex justify-between items-center h-16 ">
-                <img className="w-10 h-10 object-contain" src={logo} alt="website logo" />    
+                <img className="w-20 h-20 object-contain" src={logo} alt="website logo" />    
             </div>
             <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
                 <Link to="/" className="hover:text-blue-600">Home</Link>
