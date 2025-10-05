@@ -4,7 +4,7 @@ function Destinationpage(){
     return(
         <>
         <NavBar/>
-        <h1 className="mt-5">welcome to the Homepage</h1>
+        <h1 className="mt-5">welcome to the Destinationpage</h1>
         </>
         
     )

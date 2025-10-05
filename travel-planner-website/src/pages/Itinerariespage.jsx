@@ -4,7 +4,7 @@ function Itinerariespage(){
     return(
         <>
         <NavBar/>
-         <h1>welcome to the Homepage</h1>
+         <h1>welcome to the Itinerary</h1>
         </>
 
        
