@@ -15,9 +15,8 @@ function NavBar() {
             </div>
             <div className="hidden md:flex space-x-8 text-gray-700 font-medium">
                 <Link to="/" className="hover:text-blue-600">Home</Link>
-                 <Link to="/destinations" className="hover:text-blue-600" >Destination</Link>
-                <Link to="/itineraries" className="hover:text-blue-600" >Itineraries</Link>
-                <Link to="/contact" className="hover:text-blue-600" >Contact</Link>
+                 <Link to="/dashboard" className="hover:text-blue-600" >Dashboard</Link>
+                
             </div>
             <div className="md:hidden ">
                 {isOpen ? (
@@ -29,9 +28,8 @@ function NavBar() {
             {isOpen && (
                 <div  className=" absolute top-16 md:hidden flex flex-col space-y-4 mt-2 bg-white p-4 rounded-lg shadow-md ">
                  <Link to="/" className="hover:text-blue-600" onClick={() => setIsOpen(false)}>Home</Link>
-                 <Link to="/destinations" className="hover:text-blue-600" onClick={() => setIsOpen(false)} >Destination</Link>
-                <Link to="/itineraries" className="hover:text-blue-600" onClick={() => setIsOpen(false)} >Itineraries</Link>
-                <Link to="/contact" className="hover:text-blue-600" onClick={() => setIsOpen(false)} >Contact</Link>   
+                 <Link to="/dashboard" className="hover:text-blue-600" onClick={() => setIsOpen(false)} >Dashboard</Link>
+                
                 </div>
             ) }
             
