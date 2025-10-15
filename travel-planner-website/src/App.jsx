@@ -1,27 +1,21 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Homepage from './pages/Homepage'
-import Dashboardpage from './pages/Dashboardpage'
-
-
-
+import Home from "./pages/Home";
+import TravelSearch from "./pages/TravelSearch";
 
 function App() {
- 
-
   return (
     <>
-     <BrowserRouter>
-     <Routes>
-       <Route path="/" element={<Homepage  />} />
-        <Route path="/destinations" element={<Dashboardpage />} />
-        
-     </Routes>
-     </BrowserRouter>
       
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/travelsearch/" element={<TravelSearch/>} />
+       
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
