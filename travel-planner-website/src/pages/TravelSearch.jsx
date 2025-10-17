@@ -1,5 +1,5 @@
-import { useState } from "react";
 import React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function TravelSearch() {
@@ -53,7 +53,13 @@ export default function TravelSearch() {
             const res = await fetch(`http://localhost:5000/api/hotels?cityCode=${cityCode}`);
             const data = await res.json();
             if (res.ok) {
-                setHotels(data);
+                // Combine hotels and offers for display
+                const mergedHotels = data.offers?.map((offer) => ({
+                    ...offer,
+                    hotel: data.hotels.find((h) => h.hotelId === offer.hotel.hotelId),
+                })) || [];
+
+                setHotels(mergedHotels);
                 setFlights([]);
             } else {
                 setError(data.error || "Failed to fetch hotels");
@@ -66,13 +72,13 @@ export default function TravelSearch() {
         }
     };
 
+
     return (
         <div className="p-6 max-w-7xl mx-auto">
             <h1 className="text-4xl font-extrabold mb-6 text-center text-blue-700">
                 🌍 Travel Explorer
             </h1>
 
-            {/* Search Box */}
             <div className="flex flex-col sm:flex-row gap-3 mb-6 justify-center">
                 <input
                     type="text"

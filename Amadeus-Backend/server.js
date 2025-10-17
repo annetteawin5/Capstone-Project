@@ -83,19 +83,38 @@ app.get("/api/flights", async (req, res) => {
 app.get("/api/hotels", async (req, res) => {
     try {
         const { cityCode } = req.query;
-        const response = await amadeus.shopping.hotels.get({
+
+        const hotelsResponse = await amadeus.referenceData.locations.hotels.byCity.get({
             cityCode,
+        });
+
+        const hotels = hotelsResponse.data;
+        console.log(hotels);
+
+        if (!hotels || hotels.length === 0) {
+            return res.status(404).json({ message: "No hotels found for this city" });
+        }
+
+        const hotelIds = hotels
+            .map((h) => h.hotelId)
+            .slice(0, 20)
+            .join(",");
+
+        const offersResponse = await amadeus.shopping.hotelOffersSearch.get({
+            hotelIds,
             adults: 1,
             roomQuantity: 1,
-            radius: 20,
-            radiusUnit: "KM",
         });
-        res.json(response.data);
+
+        res.json({
+            hotels,
+            offers: offersResponse.data,
+        });
     } catch (err) {
-        console.error("Hotel Search Error:", err);
+        console.error("Hotel Search Error:", err.response?.result || err);
         res.status(500).json({
             message: "Failed to fetch hotels",
-            description: err.description || err.message || err,
+            description: err.response?.result || err.message || err,
         });
     }
 });
